@@ -1,5 +1,7 @@
 # WebApplicationOnGAE
 
+This is an Web App on google App Engine, using J2EE, AngularJs and GAE endpoint.
+
 --login with your google account.
 
 --Upload your profile, and you can modify it the next time you login again.
