@@ -1,0 +1,99 @@
+<div ng-controller="MyProfileCtrl" ng-init="init()">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- <div id="messages" class="alert alert-{{alertStatus}}" ng-show="messages">
+                <span ng-bind="messages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="messages = ''"
+                   ng-show="messages"></i>
+            </div> -->
+            <img class="spinner" src="/img/ajax-loader.gif" ng-show="loading"/>
+        </div>
+    </div>
+    <div class="row">
+    <div class="box">
+        <div class="col-md-8">
+            <h3>My Profile</h3>
+       
+            <form name="profileForm" novalidate role="form">
+            
+<!--             <div class="form-group" ng-class="{'has-warning': profile.displayName != initialProfile.displayName}">
+ -->                    
+
+                <div class="form-group" ng-class="{'has-warning': profile.displayName != initialProfile.displayName}">
+                    <label for="displayName">Display Name </label>
+                    <span class="label label-warning"
+                          ng-show="profile.displayName != initialProfile.displayName"> Changed</span>
+                    <input id="displayName" type="text" name="displayName" ng-model="profile.displayName"
+                           class="form-control"/>
+                </div>
+
+                <div class="form-group" ng-class="{'has-warning': profile.gender != initialProfile.gender">
+                    <label for="gender">Gender</label>
+                    <span class="label label-warning"
+                          ng-show="profile.gender != initialProfile.gender"> Changed</span>
+                    <select id="gender" ng-model="profile.gender" name="gender" ng-options="gender for gender in genders"
+                            class="form-control">
+                    </select>
+                </div>
+                
+                <div class="form-group" ng-class="{'has-warning': profile.age != initialProfile.age}">
+                    <label for="age">Age </label>
+                    <span class="label label-warning"
+                          ng-show="profile.age != initialProfile.age"> Changed</span>
+                    <input id="age" type="text" name="age" ng-model="profile.age"
+                           class="form-control"/>
+                </div>
+                
+                <div class="form-group" ng-class="{'has-warning': profile.phone != initialProfile.phone}">
+                    <label for="phone">Phone Number</label>
+                    <span class="label label-warning"
+                          ng-show="profile.phone != initialProfile.phone"> Changed</span>
+                    <input id="phone" type="text" name="phone" ng-model="profile.phone"
+                           class="form-control"/>
+                </div>
+
+                <div class="form-group" ng-class="{'has-warning': profile.interest != initialProfile.interest}">
+                    <label for="interest">City of Interest </label>
+                    <span class="label label-warning"
+                          ng-show="profile.interest != initialProfile.interest"> Changed</span>
+                    <select id="interest" ng-model="profile.interest" name="interest" ng-options="interest for interest in interests"
+                           class="form-control">
+                    </select>
+                </div>
+              
+
+                <button ng-click="saveProfile(profileForm)" class="btn btn-primary"
+                        ng-disabled="loading">Update
+                </button>
+                
+                <div id="messages" class="" ng-show="messages">
+                <span ng-bind="messages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="messages = ''"
+                   ng-show="messages"></i>
+            </div>
+            
+            </form>
+
+            
+        </div>
+            
+            <div class="fileinput fileinput-new image-choice" data-provides="fileinput">
+			      <div class="fileinput-new thumbnail" style="width: 300px; height: 200px;">
+				<img ng-src="{{profile.imagekey?'/file?blob-key='+profile.imagekey:'/img/no-image.svg'}}" alt="..." style="width: 300px; height: 200px;">
+			      </div>
+			      <div class="fileinput-preview fileinput-exists thumbnail" style="width: 300px; height: 200px;"></div>
+		      <div>
+		      <span class="btn btn-default btn-file" ng-show="!profileImageLoading">
+		          <span class="fileinput-new">upload</span>
+			  <span class="fileinput-exists">change</span>
+			  <input type="file" file-model="profileImage" name="..."></span>
+			  <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" ng-click="profileImage = null">delete</a>
+		      </div>
+		      <img src="/img/ajax-loader.gif" ng-show="profileImageLoading"/>
+            </div>
+   
+        </div>
+
+                
+    </div>
+</div>

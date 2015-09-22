@@ -1,0 +1,85 @@
+<div ng-controller="TravelDetailCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- <div id="messages" class="alert alert-{{alertStatus}}" ng-show="messages">
+                <span ng-bind="messages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="messages = ''"
+                   ng-show="messages"></i>
+            </div> -->
+            <img class="spinner" src="/img/ajax-loader.gif" ng-show="loading"/>
+        </div>
+    </div>
+
+    <!-- <div class="row" ng-init="init()"> -->
+    <div class="row row-offcanvas row-offcanvas-right" ng-init="init()" ng-class="{active: isOffcanvasEnabled}">
+    <div class="box">
+        <div class="col-md-7 col-sm-8">
+            <div class="well well-sm">
+                <h2>{{travel.name}}</h2>
+                <h5>{{travel.description}}</h5>
+                            
+                <div>
+                    <label for="registered">Available/Total: </label>
+                    <span id="registered">{{travel.seatsAvailable}} / {{travel.maxAttendees}}</span>
+                </div>
+               
+                <div>
+                        <label for="city">City: </label>
+                        <span id="city">{{travel.city}}</span>
+                    </div>
+                    <div>
+                        <label for="topics">Activities: </label>
+                        <span id="topics">
+                            <span ng-repeat="topic in travel.topics" class="label label-primary label-separated">{{topic}}</span>
+                        </span>
+                    </div>
+                    <div>
+                        <label for="startDate">From: </label>
+                        <span id="startDate">{{travel.startDate | date:'dd-MMMM-yyyy'}}</span>
+                    </div>
+                    <div>
+                        <label for="endDate">To: </label>
+                        <span id="endDate">{{travel.endDate | date:'dd-MMMM-yyyy'}}</span>
+                    </div>
+                
+                <p><a class="btn btn-primary" ng-hide="isUserAttending" ng-click="registerForTravel()"
+                        ng-disabled="loading">Sign up</a></p>
+                <p><a class="btn btn-primary" ng-show="isUserAttending" ng-click="unregisterFromTravel()"
+                        ng-disabled="loading">Cancel</a></p>
+                <div id="messages" class="" ng-show="messages">
+                <span ng-bind="messages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="messages = ''"
+                   ng-show="messages"></i>
+            	</div>
+            </div>
+            			<h4>Organizer Info</h4>
+            <form class="form" novalidate role="form">
+                <fieldset>
+                
+                     <div>
+                    <label for="organizer">Name: </label>
+                    <span id="organizer">{{travel.organizerDisplayName}}</span>
+                </div>
+                <div>
+                    <label for="gender">Gender: </label>
+                    <span id="gender">{{travel.organizerGender}}</span>
+                </div>
+                <div>
+                    <label for="phone">Phone Number: </label>
+                    <span id="phone">{{travel.organizerPhone}}</span>
+                </div>
+                
+                <div>
+                    <label for="emial">Email: </label>
+                    <span id="emial">{{travel.organizerMainMail}}</span>
+                </div>
+                </fieldset>
+            </form>    
+			</div>
+			<div class="col-md-5"><iframe src="https://www.google.com/calendar/embed? 
+			showTitle=0&amp;" width="460" height="270"></iframe></div>
+        
+        </div>
+        </div>
+    </div>  
+ </div>

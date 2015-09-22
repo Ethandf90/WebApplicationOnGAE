@@ -1,0 +1,480 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/t_N7tQpb5s8Y_Xwt_ruotaF99gg\"",
+ "discoveryVersion": "v1",
+ "id": "travel:v1",
+ "name": "travel",
+ "version": "v1",
+ "description": "API for the Backend application.",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://travelbuddygroup1.appspot.com/_ah/api/travel/v1/",
+ "basePath": "/_ah/api/travel/v1/",
+ "rootUrl": "https://travelbuddygroup1.appspot.com/_ah/api/",
+ "servicePath": "travel/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Field": {
+   "id": "Field",
+   "type": "string",
+   "enum": [
+    "CITY",
+    "MAX_ATTENDEES",
+    "MONTH",
+    "TOPIC"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  "Filter": {
+   "id": "Filter",
+   "type": "object",
+   "properties": {
+    "field": {
+     "$ref": "Field"
+    },
+    "operator": {
+     "$ref": "Operator"
+    },
+    "value": {
+     "type": "string"
+    }
+   }
+  },
+  "Operator": {
+   "id": "Operator",
+   "type": "string",
+   "enum": [
+    "EQ",
+    "GT",
+    "GTEQ",
+    "LT",
+    "LTEQ",
+    "NE"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  "Profession": {
+   "id": "Profession",
+   "type": "string",
+   "enum": [
+    "BiomedicalEngineering",
+    "Communications",
+    "ComputerEngineering",
+    "Electronics",
+    "EnergySystems",
+    "NOT_SPECIFIED",
+    "Photonics",
+    "SystemsControl"
+   ],
+   "enumDescriptions": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  "Profile": {
+   "id": "Profile",
+   "type": "object",
+   "properties": {
+    "displayName": {
+     "type": "string"
+    },
+    "mainEmail": {
+     "type": "string"
+    },
+    "profession": {
+     "$ref": "Profession"
+    },
+    "travelKeysToAttend": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "userId": {
+     "type": "string"
+    }
+   }
+  },
+  "ProfileForm": {
+   "id": "ProfileForm",
+   "type": "object",
+   "properties": {
+    "displayName": {
+     "type": "string"
+    },
+    "profession": {
+     "$ref": "Profession"
+    }
+   }
+  },
+  "Travel": {
+   "id": "Travel",
+   "type": "object",
+   "properties": {
+    "city": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "endDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "maxAttendees": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "month": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "name": {
+     "type": "string"
+    },
+    "organizerDisplayName": {
+     "type": "string"
+    },
+    "organizerMainMail": {
+     "type": "string"
+    },
+    "seatsAvailable": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "startDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "topics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "websafeKey": {
+     "type": "string"
+    }
+   }
+  },
+  "TravelCollection": {
+   "id": "TravelCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Travel"
+     }
+    }
+   }
+  },
+  "TravelForm": {
+   "id": "TravelForm",
+   "type": "object",
+   "properties": {
+    "city": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "endDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "maxAttendees": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "name": {
+     "type": "string"
+    },
+    "startDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "topics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "TravelQueryForm": {
+   "id": "TravelQueryForm",
+   "type": "object",
+   "properties": {
+    "filters": {
+     "type": "array",
+     "items": {
+      "$ref": "Filter"
+     }
+    }
+   }
+  },
+  "WrappedBoolean": {
+   "id": "WrappedBoolean",
+   "type": "object",
+   "properties": {
+    "reason": {
+     "type": "string"
+    },
+    "result": {
+     "type": "boolean"
+    }
+   }
+  }
+ },
+ "methods": {
+  "createTravel": {
+   "id": "travel.createTravel",
+   "path": "travel",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "TravelForm",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Travel"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getProfile": {
+   "id": "travel.getProfile",
+   "path": "profile",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "Profile"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getTravel": {
+   "id": "travel.getTravel",
+   "path": "travel/{websafeTravelKey}",
+   "httpMethod": "GET",
+   "parameters": {
+    "websafeTravelKey": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "websafeTravelKey"
+   ],
+   "response": {
+    "$ref": "Travel"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getTravelsCreated": {
+   "id": "travel.getTravelsCreated",
+   "path": "getTravelsCreated",
+   "httpMethod": "POST",
+   "response": {
+    "$ref": "TravelCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getTravelsToAttend": {
+   "id": "travel.getTravelsToAttend",
+   "path": "getTravelsToAttend",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "TravelCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "queryTravels": {
+   "id": "travel.queryTravels",
+   "path": "queryTravels",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "TravelQueryForm",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "TravelCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "queryTravels_nofilters": {
+   "id": "travel.queryTravels_nofilters",
+   "path": "queryTravels_nofilters",
+   "httpMethod": "POST",
+   "response": {
+    "$ref": "TravelCollection"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "registerForTravel": {
+   "id": "travel.registerForTravel",
+   "path": "travel/{websafeTravelKey}/registration",
+   "httpMethod": "POST",
+   "parameters": {
+    "websafeTravelKey": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "websafeTravelKey"
+   ],
+   "response": {
+    "$ref": "WrappedBoolean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "saveProfile": {
+   "id": "travel.saveProfile",
+   "path": "profile",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "ProfileForm",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Profile"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "unregisterFromTravel": {
+   "id": "travel.unregisterFromTravel",
+   "path": "travel/{websafeTravelKey}/registration",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "websafeTravelKey": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "websafeTravelKey"
+   ],
+   "response": {
+    "$ref": "WrappedBoolean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ },
+ "resources": {
+  "travelApi": {
+   "methods": {
+    "filterPlayground": {
+     "id": "travel.travelApi.filterPlayground",
+     "path": "filterPlayground",
+     "httpMethod": "POST",
+     "response": {
+      "$ref": "TravelCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  }
+ }
+}

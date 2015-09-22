@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- Bootstrap the angular app after the Google Java Script libraries are loaded. -->
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Travel Buddy</title>
+
+  <!--   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <!-- For the new website template -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/business-casual.css">
+    <link rel="stylesheet" href="/css/jasny-bootstrap.css">
+    <link rel="stylesheet" href="/css/jasny-bootstrap.css.map">
+    
+    <link rel="shortcut icon" href="/img/travelbuddy.ico">
+    <meta property="og:title" content="TravelBuddy">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A2 for ece1779, group10">
+    <meta property="og:image" content="/img/CloudPlatform_logo.png">
+    <meta property="og:site_name" content="An web app powered by Google App Engine">
+    
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>   
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+	
+		
+    <script>
+        /*
+         * Initializes the Google API JavaScript client. Bootstrap the angular module after loading the Google libraries
+         * so that Google JavaScript library ready in the angular modules.
+         */
+        function init() {
+            gapi.client.load('travel', 'v1', null, '//' + window.location.host + '/_ah/api');
+            gapi.client.load('oauth2', 'v2', function () {
+                angular.bootstrap(document, ['travelApp']);
+            });
+        };
+    </script>
+    <script src="//apis.google.com/js/client:plusone.js?onload=init"></script>
+	
+</head>
+
+<!-- Restore the credential from cookie if stored by calling initSignInButton() -->
+<body ng-controller="RootCtrl" ng-init="initSignInButton()">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+<!--             <a class="navbar-brand" href="/">Backpack</a> -->
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">                      
+       		 <li ng-class="{ active: isActive('/')}" ng-click="collapseNavbar()"><a href="#/">Home</a></li>         
+                <li ng-class="{ active: isActive('/travel')}" ng-click="collapseNavbar()"><a href="#/travel">Find</a></li>
+                <li ng-class="{ active: isActive('/travel/create')}" ng-click="collapseNavbar()"><a href="#/travel/create" >Create</a></li>
+                <li ng-class="{ active: isActive('/profile')}" ng-click="collapseNavbar()"><a href="#/profile">Profile</a></li>
+                <li class="nav-divider"></li>
+            <!-- </ul>
+            <ul class="nav navbar-nav navbar-right"> -->
+                <li id="signInLink" ng-hide="getSignedInState()"><a ng-click="signIn(); collapseNavbar()">Sign In</a></li>
+                <li id="signOutLink" ng-show="getSignedInState()"><a ng-click="signOut(); collapseNavbar()">Log out</a></li>
+            </ul>
+        </div>     
+    </div>
+</div>
+<br /><br /><br /><br /><br />
+    <div class="brand">Travel Buddy</div>
+    <div class="address-bar">University of Toronto</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- <div id="rootMessages" class="alert alert-{{alertStatus}}" ng-show="rootMessages">
+                <span ng-bind="rootMessages"></span>
+                <i class="dismiss-messages pull-right glyphicon glyphicon-remove" ng-click="rootMessages = ''"
+                   ng-show="rootMessages"></i>
+            </div> -->
+        </div>
+    </div>
+    <ng-view></ng-view>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/controllers.js"></script>
+<script src="/js/jasny-bootstrap.js"></script>
+<!-- Put the signInButton to invoke the gapi.signin.render to restore the credential if stored in cookie. -->
+<!-- <span id="signInButton" style="display: none" disabled="true"></span> -->
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+<footer>
+    <div class="row">
+		<div class="col-lg-12 text-center">
+			<h2 class="brand-before">
+                <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+                <div class="g-plus" data-size="medium" data-action="share" data-annotation="none"></div>
+ 				<div class="g-plusone" data-size="medium" data-annotation="none"></div>
+ 				<a href="http://ece1779group12winter2015.appspot.com"><dfn title="City Guide"><img width=30px height=30px src="img/social.jpg" alt=""></dfn></a>
+ 				<a href="http://myprojectsherry.appspot.com"><dfn title="RecReiser"><img width=30px height=30px src="img/note.jpg" alt=""></dfn></a>
+ 				<h3><font color="#E6E6E6">Travel Buddy</font></h3>
+                <hr class="tagline-divider">
+                <font color="#E6E6E6"><small>by <strong> Group 10 Students </strong></small></font>
+			</h2>
+		</div>
+	</div>
+        
+</footer>
+</html>

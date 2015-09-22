@@ -1,0 +1,505 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://travelbuddygroup10.appspot.com/_ah/api",
+  "name" : "travel",
+  "version" : "v1",
+  "description" : "API for the Backend application.",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://travelbuddygroup10.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "travel.getProfile" : {
+      "path" : "profile",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.getProfile",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.unregisterFromTravel" : {
+      "path" : "travel/{websafeTravelKey}/registration",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.unregisterFromTravel",
+      "request" : {
+        "parameters" : {
+          "websafeTravelKey" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.registerForTravel" : {
+      "path" : "travel/{websafeTravelKey}/registration",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.registerForTravel",
+      "request" : {
+        "parameters" : {
+          "websafeTravelKey" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.getTravelsCreated" : {
+      "path" : "getTravelsCreated",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.getTravelsCreated",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.getTravelsToAttend" : {
+      "path" : "getTravelsToAttend",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.getTravelsToAttend",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.queryTravels" : {
+      "path" : "queryTravels",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.queryTravels",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.queryTravels_nofilters" : {
+      "path" : "queryTravels_nofilters",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.queryTravels_nofilters",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.createTravel" : {
+      "path" : "travel",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.createTravel",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.travelApi.filterPlayground" : {
+      "path" : "filterPlayground",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.filterPlayground",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.getTravel" : {
+      "path" : "travel/{websafeTravelKey}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.getTravel",
+      "request" : {
+        "parameters" : {
+          "websafeTravelKey" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "travel.saveProfile" : {
+      "path" : "profile",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "225268455853-3j6s8d79dluas9tvcvjsjav9tvtn48cl.apps.googleusercontent.com", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.project.travel.spi.TravelApi.saveProfile",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Profile" : {
+        "id" : "Profile",
+        "type" : "object",
+        "properties" : {
+          "displayName" : {
+            "type" : "string"
+          },
+          "mainEmail" : {
+            "type" : "string"
+          },
+          "gender" : {
+            "$ref" : "Gender"
+          },
+          "interest" : {
+            "$ref" : "Interest"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "age" : {
+            "type" : "string"
+          },
+          "imagekey" : {
+            "type" : "string"
+          },
+          "userId" : {
+            "type" : "string"
+          },
+          "travelKeysToAttend" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "Gender" : {
+        "id" : "Gender",
+        "type" : "string",
+        "enum" : [ "NOT_SPECIFIED", "Male", "Female", "Other" ]
+      },
+      "Interest" : {
+        "id" : "Interest",
+        "type" : "string",
+        "enum" : [ "NOT_SPECIFIED", "Toronto", "London", "LA", "Pyongyang", "Hongkong", "Chennai" ]
+      },
+      "WrappedBoolean" : {
+        "id" : "WrappedBoolean",
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "reason" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Travel" : {
+        "id" : "Travel",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "topics" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "month" : {
+            "type" : "integer"
+          },
+          "maxAttendees" : {
+            "type" : "integer"
+          },
+          "seatsAvailable" : {
+            "type" : "integer"
+          },
+          "organizerGender" : {
+            "$ref" : "Gender"
+          },
+          "organizerPhone" : {
+            "type" : "string"
+          },
+          "websafeKey" : {
+            "type" : "string"
+          },
+          "organizerDisplayName" : {
+            "type" : "string"
+          },
+          "organizerMainMail" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TravelCollection" : {
+        "id" : "TravelCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Travel"
+            }
+          }
+        }
+      },
+      "TravelQueryForm" : {
+        "id" : "TravelQueryForm",
+        "type" : "object",
+        "properties" : {
+          "filters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Filter"
+            }
+          }
+        }
+      },
+      "Filter" : {
+        "id" : "Filter",
+        "type" : "object",
+        "properties" : {
+          "field" : {
+            "$ref" : "Field"
+          },
+          "operator" : {
+            "$ref" : "Operator"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Field" : {
+        "id" : "Field",
+        "type" : "string",
+        "enum" : [ "CITY", "TOPIC", "MONTH", "MAX_ATTENDEES" ]
+      },
+      "Operator" : {
+        "id" : "Operator",
+        "type" : "string",
+        "enum" : [ "EQ", "LT", "GT", "LTEQ", "GTEQ", "NE" ]
+      },
+      "TravelForm" : {
+        "id" : "TravelForm",
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "topics" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "maxAttendees" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "ProfileForm" : {
+        "id" : "ProfileForm",
+        "type" : "object",
+        "properties" : {
+          "displayName" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "age" : {
+            "type" : "string"
+          },
+          "gender" : {
+            "$ref" : "Gender"
+          },
+          "interest" : {
+            "$ref" : "Interest"
+          },
+          "imagekey" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.project.travel.spi.TravelApi.getProfile" : {
+        "response" : {
+          "$ref" : "Profile"
+        }
+      },
+      "com.project.travel.spi.TravelApi.unregisterFromTravel" : {
+        "response" : {
+          "$ref" : "WrappedBoolean"
+        }
+      },
+      "com.project.travel.spi.TravelApi.registerForTravel" : {
+        "response" : {
+          "$ref" : "WrappedBoolean"
+        }
+      },
+      "com.project.travel.spi.TravelApi.getTravelsCreated" : {
+        "response" : {
+          "$ref" : "TravelCollection"
+        }
+      },
+      "com.project.travel.spi.TravelApi.getTravelsToAttend" : {
+        "response" : {
+          "$ref" : "TravelCollection"
+        }
+      },
+      "com.project.travel.spi.TravelApi.queryTravels" : {
+        "request" : {
+          "$ref" : "TravelQueryForm"
+        },
+        "response" : {
+          "$ref" : "TravelCollection"
+        }
+      },
+      "com.project.travel.spi.TravelApi.queryTravels_nofilters" : {
+        "response" : {
+          "$ref" : "TravelCollection"
+        }
+      },
+      "com.project.travel.spi.TravelApi.createTravel" : {
+        "request" : {
+          "$ref" : "TravelForm"
+        },
+        "response" : {
+          "$ref" : "Travel"
+        }
+      },
+      "com.project.travel.spi.TravelApi.filterPlayground" : {
+        "response" : {
+          "$ref" : "TravelCollection"
+        }
+      },
+      "com.project.travel.spi.TravelApi.getTravel" : {
+        "response" : {
+          "$ref" : "Travel"
+        }
+      },
+      "com.project.travel.spi.TravelApi.saveProfile" : {
+        "request" : {
+          "$ref" : "ProfileForm"
+        },
+        "response" : {
+          "$ref" : "Profile"
+        }
+      }
+    }
+  }
+}
