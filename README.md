@@ -10,5 +10,5 @@ This is an Web App on google App Engine, using J2EE, AngularJs and GAE endpoint.
 
 --Find the events and look into it clicking the 'info' button, and to sign up!
 
-webiste:
-dftestgae.appspot.com/
+Running on GAE:
+[dftestgae.appspot.com/](dftestgae.appspot.com/)
